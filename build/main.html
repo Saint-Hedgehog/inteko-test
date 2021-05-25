@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Project Name - описание">
+  <!-- генерируйте favicon тут - https://realfavicongenerator.net/ -->
+  <!-- ! в подключение фавикон манифеста обязательно добавьте строчки crossorigin="use-credentials"-->
+  <!-- <link href="favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+<link href="favicon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+<link href="favicon/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+<link href="favicon/site.webmanifest" rel="manifest" crossorigin="use-credentials">
+<link color="#c84659" href="favicon/safari-pinned-tab.svg" rel="mask-icon">
+<link href="favicon/favicon.ico" rel="shortcut icon">
+<meta content="#ffffff" name="msapplication-TileColor">
+<meta content="favicon/browserconfig.xml" name="msapplication-config">
+<meta content="#ffffff" name="theme-color">
+ -->
+  <!-- используйте только для шрифта находящегося на первом экране -->
+  <!-- <link rel="preload" href="fonts/placeholder.woff2" as="font" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="css/style.min.css">
+  <title>ProjectName — Главная</title>
+</head>
+
+<body>
+  <div style="display: none;">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <symbol id="icon-arrows">
+        <path d="M.183 5H20M19.451 4.939L15.305.427" />
+      </symbol>
+      <symbol id="icon-close" viewBox="0 0 20 20">
+        <path d="M.293 18.291a1 1 0 101.414 1.414L10 11.413l8.292 8.292a1 1 0 101.414-1.414l-8.292-8.292 8.292-8.292A1 1 0 1018.291.293L9.999 8.585 1.707.293A1 1 0 10.293 1.707L8.585 10 .293 18.291z" />
+      </symbol>
+      <symbol id="icon-divider-mob" viewBox="0 0 236 4">
+        <image id="divider" width="236" height="4" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOwAAAAECAYAAACNxNP7AAAAkklEQVRIie3TsQ3DIBCF4d9R+nikuKG/CdzQZ5QsgOQRSE1lT2R5gSRNKueQLAtbQrqv5NA94ETjfGxQpCAfbT23f6uj+q6dlbM115gSrsBb6+N87FKQUSkNQL8zewHaTG0GbqWm6nyUFOSllJ7Ao1TOygTcM+ep9SNPKcjfnZyP7W9m5jzLxR7bmHrYhzWmFsAXtRYmT2JwaZwAAAAASUVORK5CYII=" />
+      </symbol>
+      <symbol id="icon-divider" viewBox="0 0 1080 4">
+        <image id="divider" width="1080" height="4" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAABDgAAAAECAYAAABr549KAAAApUlEQVR4nO3YsQ3CMBAAwIeJYAOq1HgDivSESYDeEiOE2h0TwEYgBkgCEhEE3dUv//v/5cKzqm7v0S+VnM5dEVXdNhGxHzjjXbuS06En5zoi2g/n7HIpOa36Al7o4ZiWJadbT22biDh9sb5vGurNGLvLbxvaiee7szVD+FvHklPTdbmqbhcRcTV+AJimubkBAAAAU+eDAwAAAJg8HxwAAADAtEXEA7a/JWACdwNfAAAAAElFTkSuQmCC" />
+      </symbol>
+      <symbol id="icon-link" viewBox="0 0 20 20">
+        <image id="link" width="20" height="20" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAACIklEQVQ4ja2VQUhUcRDGf/vchCICIRIvQx06dEhShDqIEJVnsQKxxSAPodBVr17tGiQdVkhtKVLxFqgQhEhdVtCDQodiLksRCBF5CEUGvod/1oUuO/DYefP/5mPeN/OfLdDAzOw8MAwMAJ1Au1A/gG1gBai4+5/67FOEZvYEmAYuKrQLZPKPgGvyfwGT7j6b5mcJUauZzQNl4AOwD3wGeoA9PT2K7QtTjpzIPUUoohLwFqgCZ4ERd/+bA+SP6KwqbEm5J4T6zDhYBoaA5+G7+9d6SRRbFmZIfkkcFNSAbyJ4amZjwEvlRwM2gNt6/wj0qlFh4+4+Y2avgEHgSqZuXgCmBGoBfgP90qsLuKynS7F+YVqUMyWO4aJGY93dazrsDn3cfQ1YkyQr+tyBpIlVYSNeM7P14MpU/qdEpo7A1GvXwFzY3IKjMzT8B+wkJH0ai50EfFO/X5LYdaAtKcYilo5NU6yo6/TO3aelTQzsT3d/nOjVSMPXwKU8ZmaT8Z5pNPqS6moq/39mwuYWHNtFXfQXZtahTkf37pvZPeCBtLqhKjal7aI6vKR4NOcu8CwqrGim8jk81EytAreALeC7ni3FVoU5TOYwOCoFTq5eWdcoJj46/97dHzXS0MzeAA+BM0nOaGyeTMBYQQs6iAs/Eb6ZXa3XUbFBYQIb/kK+xkLD3EblxJKICg+AOTO7k5Cdi5jOQsNYDlFIntv8BdvcvwDgGDlZzTZzgAujAAAAAElFTkSuQmCC" />
+      </symbol>
+      <symbol id="icon-logo" viewBox="0 0 150 40">
+        <image id="logo" width="150" height="40" xlink:href="data:img/png;base64,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" />
+      </symbol>
+    </svg>
+  </div>
+  <div class="wrapper">
+    <header class="header ">
+      <div class="container">
+        <a class="header__logo" aria-label="Переход на главную">
+          <svg width="150" height="40">
+            <use xlink:href="#icon-logo"></use>
+          </svg>
+        </a>
+        <a class="header__link" href="#" aria-label="link" target="_blank">
+          <svg width="20" height="20">
+            <use xlink:href="#icon-link"></use>
+          </svg>
+        </a>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <section class="about">
+          <div class="about__text-container">
+            <h2>Кто мы</h2>
+            <p>&laquo;ИНТЕКО&raquo;&nbsp;– прогрессивный девелопер с государственным участием.</p>
+            <p>Компания активно участвует в&nbsp;развитии городов: возводит современные жилые комплексы и&nbsp;социально
+              значимые объекты, создает комфортные общественные пространства, формируя новые точки притяжения
+              и&nbsp;современную среду для комфортной жизни.</p>
+            <p>Компания включена в&nbsp;перечень системообразующих организаций строительной отрасли. Президент
+              компании&nbsp;– Александр Николаев является членом Общественного совета при Минстрое&nbsp;РФ.</p>
+          </div>
+          <picture>
+            <!-- 1х: 920px; 2x: 1840px -->
+            <source type="image/webp" srcset="img/content/about-us@1x.webp 1x, img/content/about-us@2x.webp 2x">
+            <!-- 1х: 920px; 2x: 1840px -->
+            <img src="img/content/about-us@1x.jpg" alt="inteko office" width="920" height="570" srcset="img/content/about-us@2x.jpg 2x" loading="lazy">
+          </picture>
+        </section>
+        <!--  -->
+        <section class="projects">
+          <div class="projects__text-container">
+            <h2>Наши проекты</h2>
+            <p>За&nbsp;19&nbsp;лет на&nbsp;рынке недвижимости компания реализовала более 80&nbsp;проектов в&nbsp;Москве,
+              Ростове-на-Дону, Санкт-Петербурге и&nbsp;Ленинградской области и&nbsp;построила
+              более&nbsp;5&nbsp;млн&nbsp;кв.&nbsp;м.</p>
+          </div>
+          <div class="projects__flex-container">
+            <div class="projects__slider swiper-container">
+              <div class="swiper-wrapper">
+                <!-- Slide 01 -->
+                <div class="swiper-slide">
+                  <picture>
+                    <!-- 1х: 920px; 2x: 1840px -->
+                    <source type="image/webp" srcset="img/slides/projects-01@1x.webp 1x, img/slides/projects-01@2x.webp 2x">
+                    <!-- 1х: 920px; 2x: 1840px -->
+                    <img src="img/slides/projects-01@1x.jpg" alt="photo projects-01" width="920" height="554" srcset="img/slides/projects-01@2x.jpg 2x" loading="lazy">
+                  </picture>
+                </div>
+                <!-- Slide 02 -->
+                <div class="swiper-slide">
+                  <picture>
+                    <!-- 1х: 920px; 2x: 1840px -->
+                    <source type="image/webp" srcset="img/slides/projects-02@1x.webp 1x, img/slides/projects-02@2x.webp 2x">
+                    <!-- 1х: 920px; 2x: 1840px -->
+                    <img src="img/slides/projects-02@1x.jpg" alt="photo projects-02" width="920" height="554" srcset="img/slides/projects-02@2x.jpg 2x" loading="lazy">
+                  </picture>
+                </div>
+                <!-- Slide 03 -->
+                <div class="swiper-slide">
+                  <picture>
+                    <!-- 1х: 920px; 2x: 1840px -->
+                    <source type="image/webp" srcset="img/slides/projects-03@1x.webp 1x, img/slides/projects-03@2x.webp 2x">
+                    <!-- 1х: 920px; 2x: 1840px -->
+                    <img src="img/slides/projects-03@1x.jpg" alt="photo projects-03" width="920" height="554" srcset="img/slides/projects-03@2x.jpg 2x" loading="lazy">
+                  </picture>
+                </div>
+                <!-- Slide 04 -->
+                <div class="swiper-slide">
+                  <picture>
+                    <!-- 1х: 920px; 2x: 1840px -->
+                    <source type="image/webp" srcset="img/slides/projects-04@1x.webp 1x, img/slides/projects-04@2x.webp 2x">
+                    <!-- 1х: 920px; 2x: 1840px -->
+                    <img src="img/slides/projects-04@1x.jpg" alt="photo projects-04" width="920" height="554" srcset="img/slides/projects-04@2x.jpg 2x" loading="lazy">
+                  </picture>
+                </div>
+                <!-- Slide 05 -->
+                <div class="swiper-slide">
+                  <picture>
+                    <!-- 1х: 920px; 2x: 1840px -->
+                    <source type="image/webp" srcset="img/slides/projects-05@1x.webp 1x, img/slides/projects-05@2x.webp 2x">
+                    <!-- 1х: 920px; 2x: 1840px -->
+                    <img src="img/slides/projects-05@1x.jpg" alt="photo projects-05" width="920" height="554" srcset="img/slides/projects-05@2x.jpg 2x" loading="lazy">
+                  </picture>
+                </div>
+                <!-- Slide 06 -->
+                <div class="swiper-slide">
+                  <picture>
+                    <!-- 1х: 920px; 2x: 1840px -->
+                    <source type="image/webp" srcset="img/slides/projects-06@1x.webp 1x, img/slides/projects-06@2x.webp 2x">
+                    <!-- 1х: 920px; 2x: 1840px -->
+                    <img src="img/slides/projects-06@1x.jpg" alt="photo projects-06" width="920" height="554" srcset="img/slides/projects-06@2x.jpg 2x" loading="lazy">
+                  </picture>
+                </div>
+                <!-- Slide 07 -->
+                <div class="swiper-slide">
+                  <picture>
+                    <!-- 1х: 920px; 2x: 1840px -->
+                    <source type="image/webp" srcset="img/slides/projects-07@1x.webp 1x, img/slides/projects-07@2x.webp 2x">
+                    <!-- 1х: 920px; 2x: 1840px -->
+                    <img src="img/slides/projects-07@1x.jpg" alt="photo projects-07" width="920" height="554" srcset="img/slides/projects-07@2x.jpg 2x" loading="lazy">
+                  </picture>
+                </div>
+                <!-- Slide 08 -->
+                <div class="swiper-slide">
+                  <picture>
+                    <!-- 1х: 920px; 2x: 1840px -->
+                    <source type="image/webp" srcset="img/slides/projects-08@1x.webp 1x, img/slides/projects-08@2x.webp 2x">
+                    <!-- 1х: 920px; 2x: 1840px -->
+                    <img src="img/slides/projects-08@1x.jpg" alt="photo projects-08" width="920" height="554" srcset="img/slides/projects-08@2x.jpg 2x" loading="lazy">
+                  </picture>
+                </div>
+                <!-- Slide 09 -->
+                <div class="swiper-slide">
+                  <picture>
+                    <!-- 1х: 920px; 2x: 1840px -->
+                    <source type="image/webp" srcset="img/slides/projects-09@1x.webp 1x, img/slides/projects-09@2x.webp 2x">
+                    <!-- 1х: 920px; 2x: 1840px -->
+                    <img src="img/slides/projects-09@1x.jpg" alt="photo projects-09" width="920" height="554" srcset="img/slides/projects-09@2x.jpg 2x" loading="lazy">
+                  </picture>
+                </div>
+              </div>
+            </div>
+            <div class="projects__names">
+              <h3>Среди знаковых проектов:</h3>
+              <p>Легендарный элитный комплекс&nbsp;в Хамовниках &laquo;Садовые кварталы&raquo;,
+                ЖК бизнес-класса &laquo;West Garden&raquo;, ЖК комфорт-класса &laquo;Вестердам&raquo;,
+                ЖК&nbsp;&laquo;Шуваловский&raquo;, ЖК&nbsp;&laquo;DOMINION&raquo;,
+                ЖК&nbsp;&laquo;Гранд-паркъ&raquo;, Здания МГУ имени М.&nbsp;В.&nbsp;Ломоносова, Авторский
+                дом премиум-&nbsp;<span class="projects__crutch"></span>класса на&nbsp;Врубеля, 4, Элитный
+                комплекс апартаментов Balchug Residence, элитный комплекс апарт-&nbsp;резиденций Balchug Viewpoint.</p>
+              <button class="projects__button-prev" type="button">
+                <svg width="20" height="10">
+                  <use xlink:href="#icon-arrows"></use>
+                </svg>
+              </button>
+              <button class="projects__button-next" type="button">
+                <svg width="20" height="10">
+                  <use xlink:href="#icon-arrows"></use>
+                </svg>
+              </button>
+              <div class="projects__pagination"></div>
+            </div>
+          </div>
+          <p>Из&nbsp;года в&nbsp;год проекты &laquo;ИНТЕКО&raquo; побеждают в&nbsp;престижных российских
+            и международных отраслевых премиях, что подтверждает признание профессионального сообщества
+            и&nbsp;любовь наших клиентов. Компания стала обладателям уже более 35&nbsp;наград и продолжает
+            запускать новые яркие проекты на&nbsp;рынке недвижимости.</p>
+        </section>
+        <!--  -->
+        <section class="currently">
+          <h2>Интеко сейчас</h2>
+          <div class="currently__intro-flex-container">
+            <div class="currently__text-container">
+              <h2>Интеко сейчас</h2>
+              <p>Центральный офис &laquo;ИНТЕКО&raquo; расположен в Москве,<br class="currently__br"> также
+                у компании есть представительства в Ростове-на-Дону и Санкт-Петербурге. На&nbsp;данный момент
+                &laquo;ИНТЕКО&raquo; находится в&nbsp;стадии реализации стратегической программы трансформации:</p>
+            </div>
+            <div class="currently__flex-container">
+              <p><span>более<br><span>2000</span>человек</span><br>
+                Общая численность персонала</p>
+              <p><span>около<br><span>1,2</span>млн&nbsp;кв.&nbsp;м.</span><br>
+                Объем текущего строительства</p>
+            </div>
+          </div>
+          <div class="currently__flex-container">
+            <ul class="currently__list">
+              <li>В&nbsp;2019&nbsp;г. состоялся ребрендинг</li>
+              <li>Компания одной из&nbsp;первых в&nbsp;России перешла на&nbsp;работу по&nbsp;новым
+                правилам строительной отрасли, предполагающей использование эскроу-счетов</li>
+              <li>Происходит комплексная цифровизация бизнес-процессов </li>
+              <li>Запускаются новые масштабные девелоперские проекты</li>
+              <li>Компания реализует нестандартные имиджевые проекты, поддерживает творчество
+                современных российских художников по&nbsp;созданию крупных уличных скульптур</li>
+            </ul>
+            <div class="currently__img-container">
+              <picture>
+                <!-- 1х: 920px; 2x: 1840px -->
+                <source type="image/webp" srcset="img/content/currently@1x.webp 1x, img/content/currently@2x.webp 2x">
+                <!-- 1х: 920px; 2x: 1840px -->
+                <img src="img/content/currently@1x.jpg" alt="inteko currently" width="920" height="570" srcset="img/content/currently@2x.jpg 2x" loading="lazy">
+              </picture>
+            </div>
+          </div>
+          <div class="currently__lines"></div>
+        </section>
+        <!--  -->
+        <section class="staff">
+          <h2>Основные принципы работы с персоналом</h2>
+          <svg width="1080" height="4">
+            <use xlink:href="#icon-divider"></use>
+          </svg>
+          <div class="staff__slider swiper-container">
+            <div class="swiper-wrapper">
+              <!-- Slides 01-->
+              <div class="staff__text-container swiper-slide">
+                <h3>Сбалансированный подход к&nbsp;формированию кадрового состава</h3>
+                <p>Сотрудники &laquo;ИНТЕКО&raquo; – вчерашние выпускники вузов,
+                  профильные специалисты, зрелые руководители, имеющие многолетний опыт
+                  работы в&nbsp;отрасли. Средний возраст сотрудников компании&nbsp;– 39&nbsp;лет.</p>
+              </div>
+              <!-- Slides 02-->
+              <div class="staff__text-container swiper-slide">
+                <h3>Объективность оценки и&nbsp;критериев отбора кандидатов</h3>
+                <p>Кандидаты проходят многоступенчатое интервью по&nbsp;компетенциям: с&nbsp;HR,
+                  непосредственным и&nbsp;вышестоящими профильными руководителями. Оценка по&nbsp;формальным
+                  профессиональным параметрам обеспечивает ее&nbsp;объективность и&nbsp;возможность
+                  сравнения кандидатов по&nbsp;единым критериям. Для оценки кандидатов на&nbsp;некоторые
+                  позиции предусмотрено профессиональное тестирование.</p>
+              </div>
+              <!-- Slides 03-->
+              <div class="staff__text-container swiper-slide">
+                <h3>Приоритет внутренних кандидатов</h3>
+                <p>Формируя команду, компания сочетает методы внутреннего и&nbsp;внешнего найма, при
+                  этом на&nbsp;ряд позиций приоритетно рассматриваются сотрудники компании.</p>
+              </div>
+              <!-- Slides 04-->
+              <div class="staff__text-container swiper-slide">
+                <h3>Непрерывное развитие персонала</h3>
+                <p>&laquo;ИНТЕКО&raquo; стремится к&nbsp;формированию обучающей рабочей среды, в&nbsp;которой
+                  новые знания и&nbsp;опыт сотрудники получают естественным путем&nbsp;– в&nbsp;рамках
+                  текущей деятельности, в&nbsp;процессах рабочего взаимодействия, через участие в&nbsp;девелоперских
+                  и&nbsp;трансформационных проектах. На внутрикорпоративных ресурсах формируется база знаний
+                  и&nbsp;инструментарий, с&nbsp;помощью которых сотрудники могут самостоятельно изучать интересующие
+                  их&nbsp;темы. В&nbsp;компании есть у&nbsp;кого учиться: представители &laquo;ИНТЕКО&raquo; являются
+                  авторитетными экспертами, чье мнение публикуют РБК, &laquo;Коммерсантъ&raquo;,
+                  &laquo;Ведомости&raquo;,
+                  ТАСС, &laquo;Интерфакс&raquo;, &laquo;Строительная газета&raquo; и&nbsp;чьи интервью транслируют
+                  Business FM&nbsp;и РБК&nbsp;-ТВ.</p>
+              </div>
+              <!-- Slides 05-->
+              <div class="staff__text-container swiper-slide">
+                <h3>Обеспечение достойного уровня жизни сотрудников</h3>
+                <p>&laquo;ИНТЕКО&raquo; заботится о&nbsp;сотрудниках и&nbsp;предлагает широкий компенсационный пакет.
+                  Система материальной мотивации состоит из&nbsp;фиксированной (оклад) и&nbsp;переменной (премия)
+                  частей и&nbsp;адаптирована под актуальные задачи бизнеса, обеспечивая четкую взаимосвязь между
+                  результатами труда каждого отдельного работника, бизнес-результатами компании в&nbsp;целом
+                  и&nbsp;вознаграждением. Социальный пакет регулярно пересматривается, подстраиваясь под
+                  актуальные запросы сотрудников.</p>
+              </div>
+            </div>
+            <button class="staff__button-prev" type="button">
+              <svg width="20" height="10">
+                <use xlink:href="#icon-arrows"></use>
+              </svg>
+            </button>
+            <button class="staff__button-next" type="button">
+              <svg width="20" height="10">
+                <use xlink:href="#icon-arrows"></use>
+              </svg>
+            </button>
+            <div class="staff__pagination"></div>
+          </div>
+        </section>
+        <!--  -->
+        <section class="offer">
+          <h2>Компания предлагает своим сотрудникам</h2>
+          <div class="offer__flex-container">
+            <div>
+              <div class="offer__slider swiper-container">
+                <div class="swiper-wrapper">
+                  <!-- Slides 01-->
+                  <div class="swiper-slide">
+                    <picture>
+                      <!-- 1х: 800px; 2x: 1600px -->
+                      <source type="image/webp" srcset="img/slides/offer-01@1x.webp 1x, img/slides/offer-01@2x.webp 2x">
+                      <!-- 1х: 800px; 2x: 1600px -->
+                      <img src="img/slides/offer-01@1x.jpg" alt="photo offer-01" width="800" height="578" srcset="img/slides/offer-01@2x.jpg 2x" loading="lazy">
+                    </picture>
+                  </div>
+                  <!-- Slides 02-->
+                  <div class="swiper-slide">
+                    <picture>
+                      <!-- 1х: 800px; 2x: 1600px -->
+                      <source type="image/webp" srcset="img/slides/offer-02@1x.webp 1x, img/slides/offer-02@2x.webp 2x">
+                      <!-- 1х: 800px; 2x: 1600px -->
+                      <img src="img/slides/offer-02@1x.jpg" alt="photo offer-02" width="800" height="578" srcset="img/slides/offer-02@2x.jpg 2x" loading="lazy">
+                    </picture>
+                  </div>
+                  <!-- Slides 03-->
+                  <div class="swiper-slide">
+                    <picture>
+                      <!-- 1х: 800px; 2x: 1600px -->
+                      <source type="image/webp" srcset="img/slides/offer-03@1x.webp 1x, img/slides/offer-03@2x.webp 2x">
+                      <!-- 1х: 800px; 2x: 1600px -->
+                      <img src="img/slides/offer-03@1x.jpg" alt="photo offer-03" width="800" height="578" srcset="img/slides/offer-03@2x.jpg 2x" loading="lazy">
+                    </picture>
+                  </div>
+                  <!-- Slides 04-->
+                  <div class="swiper-slide">
+                    <picture>
+                      <!-- 1х: 800px; 2x: 1600px -->
+                      <source type="image/webp" srcset="img/slides/offer-04@1x.webp 1x, img/slides/offer-04@2x.webp 2x">
+                      <!-- 1х: 800px; 2x: 1600px -->
+                      <img src="img/slides/offer-04@1x.jpg" alt="photo offer-04" width="800" height="578" srcset="img/slides/offer-04@2x.jpg 2x" loading="lazy">
+                    </picture>
+                  </div>
+                  <!-- Slides 05-->
+                  <div class="swiper-slide">
+                    <picture>
+                      <!-- 1х: 800px; 2x: 1600px -->
+                      <source type="image/webp" srcset="img/slides/offer-05@1x.webp 1x, img/slides/offer-05@2x.webp 2x">
+                      <!-- 1х: 800px; 2x: 1600px -->
+                      <img src="img/slides/offer-05@1x.jpg" alt="photo offer-05" width="800" height="578" srcset="img/slides/offer-05@2x.jpg 2x" loading="lazy">
+                    </picture>
+                  </div>
+                  <!-- Slides 06-->
+                  <div class="swiper-slide">
+                    <picture>
+                      <!-- 1х: 800px; 2x: 1600px -->
+                      <source type="image/webp" srcset="img/slides/offer-06@1x.webp 1x, img/slides/offer-06@2x.webp 2x">
+                      <!-- 1х: 800px; 2x: 1600px -->
+                      <img src="img/slides/offer-06@1x.jpg" alt="photo offer-06" width="800" height="578" srcset="img/slides/offer-06@2x.jpg 2x" loading="lazy">
+                    </picture>
+                  </div>
+                  <!-- Slides 07-->
+                  <div class="swiper-slide">
+                    <picture>
+                      <!-- 1х: 800px; 2x: 1600px -->
+                      <source type="image/webp" srcset="img/slides/offer-07@1x.webp 1x, img/slides/offer-07@2x.webp 2x">
+                      <!-- 1х: 800px; 2x: 1600px -->
+                      <img src="img/slides/offer-07@1x.jpg" alt="photo offer-07" width="800" height="578" srcset="img/slides/offer-07@2x.jpg 2x" loading="lazy">
+                    </picture>
+                  </div>
+                  <!-- Slides 08-->
+                  <div class="swiper-slide">
+                    <picture>
+                      <!-- 1х: 800px; 2x: 1600px -->
+                      <source type="image/webp" srcset="img/slides/offer-08@1x.webp 1x, img/slides/offer-08@2x.webp 2x">
+                      <!-- 1х: 800px; 2x: 1600px -->
+                      <img src="img/slides/offer-08@1x.jpg" alt="photo offer-08" width="800" height="578" srcset="img/slides/offer-08@2x.jpg 2x" loading="lazy">
+                    </picture>
+                  </div>
+                  <!-- Slides 09-->
+                  <div class="swiper-slide">
+                    <picture>
+                      <!-- 1х: 800px; 2x: 1600px -->
+                      <source type="image/webp" srcset="img/slides/offer-09@1x.webp 1x, img/slides/offer-09@2x.webp 2x">
+                      <!-- 1х: 800px; 2x: 1600px -->
+                      <img src="img/slides/offer-09@1x.jpg" alt="photo offer-09" width="800" height="578" srcset="img/slides/offer-09@2x.jpg 2x" loading="lazy">
+                    </picture>
+                  </div>
+                  <!-- Slides 10-->
+                  <div class="swiper-slide">
+                    <picture>
+                      <!-- 1х: 800px; 2x: 1600px -->
+                      <source type="image/webp" srcset="img/slides/offer-10@1x.webp 1x, img/slides/offer-10@2x.webp 2x">
+                      <!-- 1х: 800px; 2x: 1600px -->
+                      <img src="img/slides/offer-10@1x.jpg" alt="photo offer-10" width="800" height="578" srcset="img/slides/offer-10@2x.jpg 2x" loading="lazy">
+                    </picture>
+                  </div>
+                  <!-- Slides 11-->
+                  <div class="swiper-slide">
+                    <picture>
+                      <!-- 1х: 800px; 2x: 1600px -->
+                      <source type="image/webp" srcset="img/slides/offer-11@1x.webp 1x, img/slides/offer-11@2x.webp 2x">
+                      <!-- 1х: 800px; 2x: 1600px -->
+                      <img src="img/slides/offer-11@1x.jpg" alt="photo offer-11" width="800" height="578" srcset="img/slides/offer-11@2x.jpg 2x" loading="lazy">
+                    </picture>
+                  </div>
+                  <!-- <div class="offer__pagination"></div> -->
+                </div>
+              </div>
+              <button class="offer__button-prev" type="button">
+                <svg width="20" height="10">
+                  <use xlink:href="#icon-arrows"></use>
+                </svg>
+              </button>
+              <button class="offer__button-next" type="button">
+                <svg width="20" height="10">
+                  <use xlink:href="#icon-arrows"></use>
+                </svg>
+              </button>
+            </div>
+            <!--  -->
+            <ul class="offer__list">
+              <li>
+                <div class="offer__pagination"></div>
+              </li>
+              <li>работу в&nbsp;центре Москвы, в&nbsp;1&nbsp;минуте ходьбы от&nbsp;ст. метро &laquo;Красные
+                ворота&raquo;
+              </li>
+              <li>полное соблюдение норм трудового законодательства</li>
+              <li>возможность адаптации графика работы под индивидуальные потребности</li>
+              <li>возможность удаленного режима работы</li>
+              <li>своевременную выплату заработной платы</li>
+              <li>прозрачную систему KPI и премирования по итогам работы за год</li>
+              <li>корпоративные программы скидок и выгодные предложения от&nbsp;партнеров</li>
+              <li>материальную поддержку</li>
+              <li>добровольное медицинское страхование (включая стоматологию, страхование выезжающих за&nbsp;рубеж,
+                а&nbsp;также льготную стоимость страховки для членов семьи сотрудника)</li>
+              <li>широкие возможности для совместного времяпрепровождения вне работы: спортивные и&nbsp;интеллектуальные
+                игры (в компании есть самообразующиеся группы по&nbsp;футболу, бегу и&nbsp;интеллектуальным
+                викторинам),
+                корпоративные праздники, участие в&nbsp;мероприятиях, проводимых Советом молодых специалистов
+                строительной
+                отрасли&nbsp;г. Москвы, и&nbsp;многое другое.</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="js/vendor.min.js"></script>
+  <script src="js/main.min.js"></script>
+</body>
+
+</html>

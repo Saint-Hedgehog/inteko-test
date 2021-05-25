@@ -1,0 +1,60 @@
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  margin: 48px 60px 0;
+  padding-top: 40px;
+  padding-bottom: 33px;
+
+  @include viewport--lg {
+    margin: 48px 45px 0;
+  }
+
+  @include viewport--sm {
+    margin: 0 20px;
+    padding: 18px 15px;
+  }
+}
+
+.header__logo {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    right: -90px;
+    display: block;
+    width: 2px;
+    height: 120px;
+    background-color: $color-very-light-grey;
+
+    @include viewport--lg {
+      right: -67px;
+    }
+
+    @include viewport--md {
+      display: none;
+    }
+  }
+
+  & svg {
+    width: 150px;
+    height: 40px;
+
+    @include viewport--lg {
+      width: 112px;
+    }
+
+    @include viewport--sm {
+      width: 106px;
+    }
+  }
+}
+
+.header__link {
+  align-self: center;
+
+  @include viewport--sm {
+    display: none;
+  }
+}

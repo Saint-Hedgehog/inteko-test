@@ -1,0 +1,297 @@
+.currently {
+  position: relative;
+  padding: 42px 60px 55px;
+  background-color: $color-white-smoke;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: block;
+    width: 952px;
+    height: 2px;
+    background-color: $color-very-light-grey;
+
+    @include viewport--lg {
+      width: 708px;
+    }
+
+    @include viewport--md {
+      width: 590px;
+    }
+
+    @include viewport--sm {
+      bottom: 0;
+      width: 96.334%;
+      height: 1px;
+    }
+  }
+
+  @include viewport--lg {
+    padding: 31px 45px 0;
+  }
+
+  @include viewport--md {
+    padding-right: 88px;
+    padding-left: 44px;
+    padding-bottom: 44px;
+  }
+
+  @include viewport--sm {
+    padding: 35px 13.334% 22px 6.67%;
+  }
+}
+
+.currently__intro-flex-container {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 54px;
+
+  @include viewport--md {
+    align-items: flex-start;
+  }
+
+  @include viewport--sm {
+    margin-bottom: 45px;
+  }
+}
+
+.currently__intro-flex-container .currently__flex-container {
+  @include viewport--md {
+    flex-direction: column;
+    margin-top: 54px;
+  }
+
+  @include viewport--sm {
+    margin-top: 0;
+  }
+}
+
+.currently__text-container {
+  max-width: 501px;
+
+  @include viewport--lg {
+    max-width: 373px;
+  }
+
+  @include viewport--sm {
+    max-width: 50%;
+  }
+}
+
+.currently > h2 {
+  display: none;
+
+  @include viewport--sm {
+    display: inline;
+    margin: 0;
+    margin-bottom: 13px;
+    margin-left: -2px;
+    font-size: 24px;
+    line-height: 28px;
+    color: $color-mariner;
+  }
+}
+
+.currently__text-container > h2 {
+  margin: 0;
+  margin-bottom: 16px;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
+  color: $color-mariner;
+
+  @include viewport--sm {
+    display: none;
+  }
+}
+
+.currently p {
+  margin: 0;
+
+  @include viewport--sm {
+    margin-top: 14px;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+  }
+}
+
+.currently__flex-container p {
+  margin-left: 82px;
+
+  &:last-of-type {
+    margin-left: 74px;
+
+    @include viewport--lg {
+      margin-left: 45px;
+    }
+
+    @include viewport--md {
+      margin-left: 44px;
+      margin-bottom: 0;
+    }
+
+    @include viewport--sm {
+      margin-left: 16.68%;
+    }
+  }
+
+  @include viewport--lg {
+    margin-left: 46px;
+  }
+
+  @include viewport--md {
+    margin-left: 44px;
+    margin-bottom: 22px;
+  }
+
+  @include viewport--sm {
+    margin-left: 16.68%;
+    margin-bottom: -3px;
+  }
+}
+
+.currently__text-container .currently__br {
+  @include viewport--lg {
+    display: none;
+  }
+}
+
+.currently span {
+  display: inline-block;
+  margin-bottom: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  @include viewport--sm {
+    margin-bottom: 6px;
+  }
+}
+
+.currently span > span {
+  margin: -2px 3px 4px 0;
+  font-size: 48px;
+  line-height: 42px;
+
+  @include viewport--sm {
+    font-size: 36px;
+    line-height: 32px;
+  }
+}
+
+.currently__flex-container {
+  display: flex;
+
+  @include viewport--md {
+    flex-direction: column;
+  }
+}
+
+.currently__img-container {
+  margin-left: 60px;
+  margin-right: -60px;
+
+  @include viewport--lg {
+    margin-left: 45px;
+    margin-right: -45px;
+  }
+
+  @include viewport--md {
+    margin-right: -88px;
+    margin-left: 0;
+    margin-top: -101px;
+  }
+
+  @include viewport--sm {
+    margin-top: -27.08%;
+    margin-right: -16.66%;
+  }
+}
+
+.currently__list {
+  z-index: 1;
+  max-width: 470px;
+  margin: 35px -200px 35px -60px;
+  padding: 62px 41px 52px 85px;
+  list-style: none;
+  background-color: $color-default-white;
+
+  @include viewport--lg {
+    margin-left: -45px;
+    margin-right: -271px;
+    padding: 46px 30px 39px 85px;
+  }
+
+  @include viewport--md {
+    max-width: 566px;
+    margin-top: 0;
+    padding-left: 70px;
+    padding-right: 44px;
+  }
+
+  @include viewport--sm {
+    max-width: 117%;
+    margin-left: -8.33%;
+    margin-right: -8.33%;
+    padding: 25px 12.5% 19px 16.25%;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+  }
+}
+
+.currently__list li {
+  position: relative;
+  margin-bottom: 10px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 13px;
+    left: -25px;
+    display: block;
+    width: 16px;
+    height: 2px;
+    background-color: $color-mariner;
+
+    @include viewport--sm {
+      top: 9px;
+      left: -19px;
+      width: 12px;
+      height: 1px;
+    }
+  }
+
+  @include viewport--sm {
+    margin-bottom: 8px;
+  }
+}
+
+.currently__lines {
+  position: absolute;
+  top: 246px;
+  left: 0;
+  display: block;
+  width: 300px;
+  height: 100%;
+  border-top: 2px solid $color-very-light-grey;
+  border-right: 2px solid $color-very-light-grey;
+
+  @include viewport--lg {
+    top: 283px;
+    width: 224px;
+  }
+
+  @include viewport--md {
+    top: 454px;
+    width: 22px;
+  }
+
+  @include viewport--sm {
+    top: 40.878%;
+    width: 3.67%;
+    border-width: 1px;
+  }
+}

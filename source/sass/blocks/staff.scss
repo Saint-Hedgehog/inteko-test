@@ -1,0 +1,246 @@
+.staff {
+  position: relative;
+  padding: 42px 0 55px 60px;
+  background-color: $color-white-smoke;
+
+  @include viewport--lg {
+    padding: 31px 0 41px 60px;
+  }
+
+  @include viewport--md {
+    padding-left: 44px;
+  }
+
+  @include viewport--sm {
+    padding-top: 45px;
+    padding-left: 6.67%;
+    padding-bottom: 33px;
+  }
+}
+
+.staff h2 {
+  margin: 0;
+  margin-bottom: 52px;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
+  color: $color-mariner;
+
+  @include viewport--lg {
+    margin-bottom: 39px;
+  }
+
+  @include viewport--sm {
+    margin-bottom: 27px;
+    padding-right: 20px;
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+
+.staff > svg {
+  position: absolute;
+  top: 215px;
+  left: 110px;
+  z-index: 2;
+
+  @include viewport--lg {
+    width: 760px;
+  }
+
+  @include viewport--md {
+    top: 250px;
+    left: 88px;
+    width: 522px;
+  }
+
+  @include viewport--sm {
+    display: none;
+  }
+}
+
+.staff__slider {
+  background-color: $color-default-white;
+}
+
+.staff__text-container {
+  display: block;
+  min-height: 320px;
+  padding: 44px 60px 30px 48px;
+  background-color: $color-default-white;
+
+  @include viewport--lg {
+    min-height: 343px;
+  }
+
+  @include viewport--md {
+    min-height: 519px;
+    padding-left: 44px;
+    padding-right: 44px;
+    padding-bottom: 60px;
+  }
+
+  @include viewport--sm {
+    min-height: auto;
+    padding: 32px 6.43% 43px 7.145%;
+  }
+}
+
+.staff__slider h3 {
+  position: relative;
+  margin: 0;
+  margin-bottom: 51px;
+  padding-right: 50px;
+  font-size: 18px;
+  line-height: 26px;
+  letter-spacing: -0.04em;
+
+  &::before {
+    @include viewport--sm {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: -3px;
+      width: 100%;
+      height: 4px;
+      background: url("../img/sprite/icon-divider-mob.svg") no-repeat center;
+      background-size: cover;
+    }
+  }
+
+  @include viewport--md {
+    min-height: 52px;
+    padding-right: 0;
+  }
+
+  @include viewport--sm {
+    margin-bottom: 21px;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.06em;
+  }
+}
+
+.staff__slider p {
+  margin: 0;
+  margin-left: 2px;
+
+  @include viewport--sm {
+    margin-left: 0;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.01em;
+  }
+}
+
+.staff__button-prev,
+.staff__button-next {
+  position: absolute;
+  top: 49px;
+  right: 60px;
+  z-index: 2;
+  display: flex;
+  width: 20px;
+  height: 10px;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+
+  svg {
+    stroke: $color-charcoal;
+    transition: stroke $default-transition-settings;
+  }
+
+  &:hover,
+  &:focus {
+    svg {
+      stroke: $color-mariner;
+    }
+  }
+
+  &:active {
+    svg {
+      stroke: $color-blue;
+    }
+  }
+
+  @include viewport--md {
+    display: none;
+  }
+}
+
+.staff__button-prev {
+  top: 57px;
+  transform: rotate(180deg);
+}
+
+.staff__button-prev.swiper-button-disabled,
+.staff__button-next.swiper-button-disabled {
+  opacity: 0.5;
+  transition: opacity $default-transition-settings;
+  pointer-events: none;
+}
+
+.staff__pagination {
+  display: none;
+
+  @include viewport--md {
+    position: absolute;
+    bottom: 0;
+    left: -44px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 24px;
+  }
+
+  @include viewport--sm {
+    flex-wrap: wrap;
+  }
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets {
+  @include viewport--sm {
+    bottom: 8px;
+  }
+}
+
+.staff__slider > .swiper-pagination-bullets .swiper-pagination-bullet {
+  @include viewport--md {
+    width: 16px;
+    height: 16px;
+    margin: 0 10px;
+    background-color: $color-mariner;
+    opacity: 1;
+  }
+
+  @media (max-width: 500px) {
+    width: 6px;
+    height: 6px;
+    margin: 0 5px;
+  }
+
+  @media (max-width: 600px) {
+    width: 9px;
+    height: 9px;
+    margin: 0 8px;
+  }
+
+  @include viewport--sm {
+    width: 12px;
+    height: 12px;
+    margin: 0 10px;
+  }
+}
+
+.staff__pagination .swiper-pagination-bullet-active {
+  @include viewport--md {
+    transform: scale(1.5);
+    transition: transform $default-transition-settings;
+    pointer-events: none;
+  }
+}
